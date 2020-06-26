@@ -48,9 +48,13 @@ with open('calls.csv', 'r') as f:
 """
 area_codes = set()
 bangalore_call_counter = 0
+bangalore_called_number_counter = 0
+
 # get all the numbers with bangalore area code
 for record in calls:
     if record[0][:5] == '(080)':
+
+        bangalore_called_number_counter += 1
 
         # for fixed lines number
         if record[1][:1] == '(':
@@ -74,6 +78,6 @@ for code in sorted(area_codes):
 -------> Part B <---------
 --------------------------
 """
-print('{:0.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.'.format(bangalore_call_counter/len(area_codes)))
+print('{:0.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.'.format(bangalore_call_counter*100/bangalore_called_number_counter))
 
 # Time complexity : O(n2 + n log n)

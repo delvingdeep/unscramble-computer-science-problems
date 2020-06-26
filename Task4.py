@@ -33,13 +33,10 @@ for record in calls:
 
 for number in calls:
     if (number[0] not in normal_number):
-        if number[0][:3] == '140':
-            pass
-        else:
-            suspicious_number.add(number[0].replace(' ', ''))
+        suspicious_number.add(number[0].replace(' ', ''))
 
 print('These numbers could be telemarketers: ')
 for number in sorted(suspicious_number):
     print(number)
 
-# Time complexity : O(n4)
+# Time complexity : O(n4 + n log n)

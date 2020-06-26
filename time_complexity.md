@@ -14,5 +14,7 @@
   
   So overall time complexity of this solution is O(n2 + n log n)
 
-- Task 4 : O(n4)  
-  Here the solution contains four different for loops, so making it a BigO of (n2)2.
+- Task 4 : O(n4 + n log n)  
+  Here the solution contains four different for loops, so making it a BigO of (n2)2. Also the solution uses a sorting algorithm based on Timsort with n log n time complexity.
+  
+  So overall time complexity of the solution is O(n4 + n log n)  
