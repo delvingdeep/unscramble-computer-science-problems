@@ -1,18 +1,4 @@
 """
-Read file into texts and calls.
-It's ok if you don't understand how to read files.
-"""
-import csv
-
-with open('texts.csv', 'r') as f:
-    reader = csv.reader(f)
-    texts = list(reader)
-
-with open('calls.csv', 'r') as f:
-    reader = csv.reader(f)
-    calls = list(reader)
-
-"""
 TASK 4:
 The telephone company want to identify numbers that might be doing
 telephone marketing. Create a set of possible telemarketers:
@@ -25,3 +11,35 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+# Read file into texts and calls.
+import csv
+
+with open('texts.csv', 'r') as f:
+    reader = csv.reader(f)
+    texts = list(reader)
+
+with open('calls.csv', 'r') as f:
+    reader = csv.reader(f)
+    calls = list(reader)
+
+normal_number = set()
+suspicious_number = set()
+for record in texts:
+    normal_number.add(record[0])
+    normal_number.add(record[1])
+
+for record in calls:
+    normal_number.add(record[1])
+
+for number in calls:
+    if (number[0] not in normal_number):
+        if number[0][:3] == '140':
+            pass
+        else:
+            suspicious_number.add(number[0].replace(' ', ''))
+
+print('These numbers could be telemarketers: ')
+for number in sorted(suspicious_number):
+    print(number)
+
+# Time complexity : O(n4)
